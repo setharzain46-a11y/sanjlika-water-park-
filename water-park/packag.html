@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Park Facilities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="packages-style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #ffffff;
+            color: #000000;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header h1 {
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            color: #090808;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .card-container {
+            background: white;
+            font: black;
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            margin-bottom: 25px;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            background: #ffffff;
+        }
+        
+        .img-container {
+            overflow: hidden;
+            border-radius: 12px;
+            height: 200px;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-container:hover .img-container img {
+            transform: scale(1.05);
+        }
+        
+        .card-container h2 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 10px 0;
+            color: black;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card-container p {
+            color: rgba(6, 6, 6, 0.9);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+        
+        .card-container .price {
+            color: #ffeb3b;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 10px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #ff6b6b, #ff8e53);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to right, #ff8e53, #ff6b6b);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+        
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .card-container h2 {
+                font-size: 1.3rem;
+            }
+            
+            .card-container p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-barr">
+    <nav>
+        <input type="checkbox" id="nav-toggle" hidden>
+        <div class="logo-section">
+            
+                <div class="logo">
+                <img src="../water_ark_logo.png" alt="Sanjalika Water Park logo">
+                </div>
+                
+                <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="search">
+            
+            <button>🔍</button>
+            </div>
+
+            <button id="buy-btn">buy ticket</button>
+            </div>
+            <label for="nav-toggle" class="hamburger">☰</label>
+        <div class="nav-bar">
+            
+            <div class="nav-as" id="nav-a">
+                <a href="../index.html">Home</a>
+                <a href="../gallery.html">Gallery</a>
+                <a href="../slides.html">Slides</a>
+                <a href="../park-info.html"> Park Info</a>
+                <a href="../food-zone.html">Food Zone</a>
+                <a href="../Facilities/packag.html">Facilities</a>
+                <a href="../location-map.html">Location </a>
+                <a href="../contact-us.html">Contact Us </a>
+                <a href="../about-us.html">About Us </a>
+            </div>
+        </div>
+    </nav>
+    </div>
+    <div style="margin-top: 120px;"></div>
+    <div class="container">
+        <div class="header">
+            <h1>Sanjilika Water  Facilities</h1>
+            <p>Choose the perfect Facilities for your next water adventure. Special discounts available for group bookings!</p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Male Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="https://media.istockphoto.com/id/1298952370/photo/joyful-man-slides-down-slide-in-water-park.jpg?s=612x612&w=0&k=20&c=bJIrhfn0_x3udu72_CkMXatRhuMIZjH2trA4W48jI8s=" alt="Male Facilities">
+                    </div>
+                    <h2>Facilities for Male</h2>
+                    <p>"Slipping and sliding into a great day," "Making a splash with the boys," "Too cool for school... and too cool for dry land," "Adventures and aquatic vibes," or simply "Good times and tan lines".</p>
+                    <!-- <div class="price">Entry Price: Rs-1800 per head</div> -->
+                    <a href="pkg-male.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+            
+            <!-- Female Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="https://static.myconnect.ae/-/media/yasconnect/project/yww/blogs/ladies-day-out/article-ladies.jpg" alt="Female Facilities">
+                    </div>
+                    <h2>Facilities for Female</h2>
+                    <p>"Slipping and sliding into a great day," "Making a splash with the girls," "Too cool for school... and too cool for dry land," "Adventures and aquatic vibes," or simply "Good times and tan lines".</p>
+                    <!-- <div class="price">Entry Price: Rs-1600 per head</div> -->
+                    <a href="pkg-female.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+            
+            <!-- Student Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="https://s39613.pcdn.co/wp-content/uploads/2017/08/iStock-176443118-170908.jpg" alt="Student Facilities">
+                    </div>
+                    <h2>Facilities for Student</h2>
+                    <p>Special discounted rates for students with valid ID. Enjoy all the water park facilities at an affordable price. Group bookings available for school and college trips.</p>
+                    <!-- <div class="price">Entry Price: Rs-1200 per head</div> -->
+                    <a href="pkg-students.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+            
+            <!-- Family Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="https://hearttohearthomeschooling.com/wp-content/uploads/2017/10/100-Relationship-Building-Ideas-Resources-and-Activities-for-Families-1080x675.jpg" alt="Family Facilities">
+                    </div>
+                    <h2>Facilities for Family</h2>
+                    <p>Create unforgettable memories with your loved ones. Our family Facilities includes special activities for kids and adults alike, with dedicated family zones.</p>
+                    <!-- <div class="price">Entry Price: Rs-5000 for family of 4</div> -->
+                    <a href="pkg-family.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+            
+            <!-- Kids Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="child-pkg.jpg" alt="Kids Facilities">
+                    </div>
+                    <h2>Facilities for Kids</h2>
+                    <p>Specially designed for our little adventurers! Safe water play areas, kid-friendly slides, and supervised activities. Perfect for birthday parties and group events.</p>
+                    <!-- <div class="price">Entry Price: Rs-1000 per child</div> -->
+                    <a href="pkg-kids.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+            
+            <!-- VIP Facilities -->
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card-container">
+                    <div class="img-container">
+                        <img src="https://waterworldwaterpark.com/wp-content/uploads/2019/06/VIP-Cabanas-WaterWorld-Themed-Waterpark-Ayia-Napa-Cyprus.jpg" alt="VIP Facilities">
+                    </div>
+                    <h2>VIP Facilities</h2>
+                    <p>Experience luxury with our VIP Facilities. Includes premium access to all rides, private cabanas, personalized service, complimentary refreshments, and exclusive amenities.</p>
+                    <!-- <div class="price">Entry Price: Rs-3500 per head</div> -->
+                    <a href="pkg-vip.html"><button class="btn">More Details</button></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>© 2023 Sanjilika Water Park. All rights reserved.</p>
+            <p>Contact us: info@sanjilikawaterpark.com | Phone: +921 234 567 8900</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

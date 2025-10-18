@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Location - Sanjalika Water Park</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", "Segoe UI", sans-serif;
+      }
+
+      :root {
+        --primary: #0066cc;
+        --secondary: #00aaff;
+        --accent: #ff6600;
+        --light: #e6f7ff;
+        --dark: #1a1a2e;
+        --text: #333344;
+      }
+
+      body {
+        background: #ffffff;
+        color: #000000;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Remove custom header; we'll use site navbar */
+      header {
+        display: none;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo-icon {
+        font-size: 32px;
+        color: white;
+      }
+
+      .logo-text {
+        font-size: 28px;
+        font-weight: 700;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Remove local nav styles; use global */
+      nav ul,
+      nav ul li,
+      nav ul li a {
+        all: unset;
+      }
+
+      /* Main Content */
+      .main-content {
+        padding: 40px 0;
+      }
+
+      .page-title {
+        text-align: center;
+        color: var(--primary);
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+
+      .page-subtitle {
+        text-align: center;
+        color: var(--secondary);
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        font-weight: 400;
+      }
+
+      /* Map Section */
+      .map-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin-bottom: 50px;
+      }
+
+      .map-container {
+        height: 450px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        background: linear-gradient(145deg, #4dc4ff, #0077cc);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        position: relative;
+      }
+
+      .map-overlay {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 70%;
+      }
+
+      .map-overlay h3 {
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      .map-info {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .info-item {
+        margin-bottom: 25px;
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+      }
+
+      .info-icon {
+        font-size: 24px;
+        color: var(--accent);
+        background: rgba(255, 102, 0, 0.1);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .info-content h3 {
+        color: var(--primary);
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+      }
+
+      /* Directions Section */
+      .directions-section {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .section-title {
+        color: var(--primary);
+        font-size: 2rem;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 3px solid var(--accent);
+        display: inline-block;
+      }
+
+      .transport-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .transport-card {
+        background: var(--light);
+        border-radius: 12px;
+        padding: 25px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid var(--accent);
+      }
+
+      .transport-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .transport-card h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.4rem;
+      }
+
+      .transport-card h3 i {
+        color: var(--accent);
+      }
+
+      /* Nearby Attractions */
+      .attractions-section {
+        background: white;
+        border-radius: 16px;
+        padding: 40px;
+        margin-bottom: 50px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+
+      .attractions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .attraction-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .attraction-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .attraction-img {
+        height: 180px;
+        background: linear-gradient(45deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .attraction-content {
+        padding: 20px;
+      }
+
+      .attraction-content h3 {
+        color: var(--primary);
+        margin-bottom: 10px;
+        font-size: 1.3rem;
+      }
+
+      .attraction-content p {
+        color: #666;
+        margin-bottom: 15px;
+        font-size: 0.95rem;
+      }
+
+      .distance {
+        color: var(--accent);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, var(--primary), var(--dark));
+        color: white;
+        padding: 50px 0 20px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .footer-section h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--accent);
+        display: inline-block;
+      }
+
+      .footer-contact p {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .footer-contact i {
+        color: var(--accent);
+        width: 20px;
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Button */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--accent);
+        color: white;
+        padding: 14px 28px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        margin-top: 15px;
+        box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3);
+      }
+
+      .btn:hover {
+        background: #ff8533;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(255, 102, 0, 0.4);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 900px) {
+        .map-section {
+          grid-template-columns: 1fr;
+        }
+
+        .map-container {
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+          gap: 15px;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 5px;
+        }
+
+        .page-title {
+          font-size: 2.2rem;
+        }
+
+        .transport-grid,
+        .attractions-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-barr">
+      <nav>
+        <input type="checkbox" id="nav-toggle" hidden />
+        <div class="logo-section">
+          <div class="logo">
+            <img src="water_park_logo.png" alt="Sanjalika Water Park logo" />
+          </div>
+          <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="search" />
+            <button>🔍</button>
+          </div>
+          <button id="buy-btn">buy ticket</button>
+          <label for="nav-toggle" class="hamburger">☰</label>
+        </div>
+        <div class="nav-bar">
+          <div class="nav-as" id="nav-a">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="slides.html">Slides</a>
+            <a href="park-info.html"> Park Info</a>
+            <a href="food-zone.html">Food Zone</a>
+            <a href="Facilities/packag.html">Facilities</a>
+            <a href="location-map.html">Location </a>
+            <a href="contact-us.html">Contact Us </a>
+            <a href="about-us.html">About Us </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div style="margin-top: 120px"></div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+      <h1 class="page-title">Find Your Way to Fun</h1>
+      <p class="page-subtitle">Easy to reach, hard to leave!</p>
+
+      <!-- Map Section -->
+      <section class="map-section">
+        <div class="map-container">
+          <i
+            class="fas fa-map-marked-alt"
+            style="font-size: 3rem; margin-right: 15px"
+          ></i>
+          <span>Interactive Map</span>
+          <div class="map-overlay">
+            <h3>We're Here!</h3>
+            <p>123 Sanjalika Water park, Waterfront City</p>
+          </div>
+        </div>
+
+        <div class="map-info">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-content">
+              <h3>Address</h3>
+              <p>123 Aquatic Drive, Waterfront City, WC 12345</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="info-content">
+              <h3>Park Hours</h3>
+              <p><strong>Monday-Friday:</strong> 9:00 AM - 7:00 PM</p>
+              <p><strong>Weekends:</strong> 9:00 AM - 8:00 PM</p>
+              <p><strong>Holidays:</strong> 8:00 AM - 9:00 PM</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-content">
+              <h3>Contact Us</h3>
+              <p><strong>Phone:</strong> (123) 456-7890</p>
+              <p><strong>Email:</strong> info@sanjalikawaterpark.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="info-content">
+              <h3>Parking</h3>
+              <p>Free parking available for over 1000 vehicles</p>
+              <p>VIP parking available near entrance</p>
+            </div>
+          </div>
+
+          <a href="#" class="btn">
+            <i class="fas fa-directions"></i>
+            Get Directions
+          </a>
+        </div>
+      </section>
+
+      <!-- Directions Section -->
+      <section class="directions-section">
+        <h2 class="section-title">How to Get Here</h2>
+        <p>
+          Sanjalika Water Park is easily accessible from all major highways and
+          public transportation routes.
+        </p>
+
+        <div class="transport-grid">
+          <div class="transport-card">
+            <h3><i class="fas fa-car"></i> By Car</h3>
+            <p>
+              From downtown, take Highway 95 North and exit at 32 (Aquatic
+              Drive). Follow signs to the water park.
+            </p>
+            <p><strong>Free parking available!</strong></p>
+          </div>
+
+          <div class="transport-card">
+            <h3><i class="fas fa-bus"></i> By Bus</h3>
+            <p>
+              Take bus route 105 or 220 to the Waterfront City Terminal.
+              Transfer to route 12 which stops right at our entrance.
+            </p>
+            <p><strong>Bus schedule available online.</strong></p>
+          </div>
+
+          <div class="transport-card">
+            <h3><i class="fas fa-train"></i> By Train</h3>
+            <p>
+              The nearest train station is Waterfront Central, just 2 miles from
+              the park. Free shuttle service available every 30 minutes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nearby Attractions -->
+      <section class="attractions-section">
+        <h2 class="section-title">Nearby Attractions</h2>
+        <p>
+          Make a day of it! These popular attractions are located near Sanjalika
+          Water Park:
+        </p>
+
+        <div class="attractions-grid">
+          <div class="attraction-card">
+            <div class="attraction-img">Marine Life Aquarium</div>
+            <div class="attraction-content">
+              <h3>Marine Life Aquarium</h3>
+              <p>
+                Explore the wonders of the ocean with over 10,000 marine
+                animals.
+              </p>
+              <p class="distance">
+                <i class="fas fa-location-arrow"></i> 1.2 miles away
+              </p>
+            </div>
+          </div>
+
+          <div class="attraction-card">
+            <div class="attraction-img">Adventure Land</div>
+            <div class="attraction-content">
+              <h3>Adventure Land</h3>
+              <p>
+                Thrilling rides and family fun at this popular amusement park.
+              </p>
+              <p class="distance">
+                <i class="fas fa-location-arrow"></i> 2.5 miles away
+              </p>
+            </div>
+          </div>
+
+          <div class="attraction-card">
+            <div class="attraction-img">Riverside Gardens</div>
+            <div class="attraction-content">
+              <h3>Riverside Gardens</h3>
+              <p>
+                Beautiful botanical gardens with walking trails and picnic
+                areas.
+              </p>
+              <p class="distance">
+                <i class="fas fa-location-arrow"></i> 0.8 miles away
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Sanjalika Water Park</h2>
+          <p>
+            Experience the thrill of water rides, wave pools, and endless fun!
+            Your ultimate family water adventure starts here.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Rides & Slides</a></li>
+            <li><a href="food-zone.html">Food Zone</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>📍 123 Water Street, Fun City</p>
+          <p>📞 +123 456 789</p>
+          <p>✉️ info@sanjalikawaterpark.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Sanjalika Water Park. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjalika Water Park | Family Water Park in Karachi</title>
+    <meta
+      name="description"
+      content="Experience thrilling water slides, wave pools, and family fun at Sanjalika Water Park. Book tickets, explore rides, food zones, and packages."
+    />
+    <link rel="icon" type="image/png" href="water_park_logo.png" />
+    <meta name="theme-color" content="#00c1c0" />
+    <meta property="og:title" content="Sanjalika Water Park" />
+    <meta
+      property="og:description"
+      content="Thrilling water rides, wave pools, and family fun. Plan your visit!"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="water_park_logo.png" />
+    <meta property="og:url" content="/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="nav-barr">
+      <nav>
+        <input type="checkbox" id="nav-toggle" hidden />
+        <div class="logo-section">
+          <div class="logo">
+            <img src="water_park_logo.png" alt="Sanjalika Water Park logo" />
+          </div>
+
+          <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="search" />
+
+            <button>🔍</button>
+          </div>
+
+          <button id="buy-btn">buy ticket</button>
+        </div>
+        <label for="nav-toggle" class="hamburger">☰</label>
+        <div class="nav-bar">
+          <div class="nav-as" id="nav-a">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="slides.html">Slides</a>
+            <a href="park-info.html"> Park Info</a>
+            <a href="food-zone.html">Food Zone</a>
+            <a href="Facilities/packag.html">Facilities</a>
+            <a href="location-map.html">Location </a>
+            <a href="contact-us.html">Contact Us </a>
+            <a href="about-us.html">About Us </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="hero-section">
+      <img
+        class="img"
+        src="https://s3.amazonaws.com/media.splashway.com/wp-content/uploads/2021/07/10181955/Splashway_1079-copy.jpg"
+        alt="Kids enjoying water slides at Sanjalika Water Park"
+      />
+      <div class="hero-overlay" aria-label="Intro section">
+        <h1>Make a Splash at Sanjalika</h1>
+        <p>Thrilling slides, wave pools, and family fun all in one place.</p>
+        <div class="hero-ctas">
+          <a class="cta-btn primary" href="Facilities/packag.html"
+            >View Packages</a
+          >
+          <a class="cta-btn secondary" href="#reviews">Read Reviews</a>
+        </div>
+      </div>
+    </div>
+    <div class="home-subnav">
+      <a href="#welcome">Welcome</a>
+      <a href="#hours">Hours</a>
+      <a href="#featured-slides">Slides</a>
+      <a href="#packages">Packages</a>
+      <a href="#booking">Booking</a>
+    </div>
+
+    <section id="welcome" class="section">
+      <div class="container">
+        <h2>Welcome to Sanjalika Water Park</h2>
+        <p>
+          Jump into a day of excitement with high-speed slides, relaxing river
+          rides, and family splash zones. We’re focused on safety, cleanliness,
+          and unforgettable memories for all ages.
+        </p>
+        <div class="welcome-actions">
+          <a class="cta-btn primary" href="#booking">Book Tickets</a>
+          <button
+            class="cta-btn secondary"
+            id="download-info-btn"
+            type="button"
+          >
+            Download Info (PDF)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="hours" class="section section-alt">
+      <div class="container">
+        <h2>Park Hours</h2>
+        <div class="hours-grid" aria-label="Operating hours">
+          <div class="hour-item">
+            <strong>Mon - Thu</strong><span>10:00 AM - 6:00 PM</span>
+          </div>
+          <div class="hour-item">
+            <strong>Fri</strong><span>2:00 PM - 10:00 PM</span>
+          </div>
+          <div class="hour-item">
+            <strong>Sat - Sun</strong><span>10:00 AM - 10:00 PM</span>
+          </div>
+          <div class="hour-item">
+            <strong>Public Holidays</strong><span>9:00 AM - 10:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="featured-slides" class="section">
+      <div class="container">
+        <h2>Featured Slides</h2>
+        <div class="slides-grid">
+          <article class="slide-card">
+            <img
+              src="https://media.oceanpark.com.hk/ww/media/pxokkmsw/bravery-cliffs-1.jpg"
+              alt="Thunder Drop slide with steep descent"
+              loading="lazy"
+            />
+            <div class="slide-content">
+              <h3>Thunder Drop</h3>
+              <p>
+                A high-adrenaline, near-vertical plunge for thrill-seekers.
+                Safety harnesses and lifeguards on duty.
+              </p>
+            </div>
+          </article>
+          <article class="slide-card">
+            <img
+              src="https://i.ytimg.com/vi/x-Lg5mk4ZHE/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLB-BUMP_-M20Ah_IzVvmZZEV85bFQ"
+              alt="Twister Tube enclosed water slide"
+              loading="lazy"
+            />
+            <div class="slide-content">
+              <h3>Twister Tube</h3>
+              <p>
+                Spiral through glowing tunnels and splash out in our deep plunge
+                pool. Medium intensity, great fun.
+              </p>
+            </div>
+          </article>
+          <article class="slide-card">
+            <img
+              src="https://images.unsplash.com/photo-1508606572321-901ea443707f?q=80&w=1200&auto=format&fit=crop"
+              alt="Family raft ride on a wide slide"
+              loading="lazy"
+            />
+            <div class="slide-content">
+              <h3>Family Raft Run</h3>
+              <p>
+                Perfect for groups—share laughs on a wide, splashy slide with
+                gentle turns and safe banking.
+              </p>
+            </div>
+          </article>
+        </div>
+        <div class="section-actions">
+          <a class="cta-btn primary" href="slides.html">See All Slides</a>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+
+    <section id="booking" class="section section-alt">
+      <div class="container">
+        <h2>Book Your Visit</h2>
+        <form id="booking-form" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="fullname">Full Name</label>
+              <input
+                type="text"
+                id="fullname"
+                name="fullname"
+                placeholder="Enter your full name"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="name@example.com"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-field">
+              <label for="visit-date">Visit Date</label>
+              <input
+                type="date"
+                id="visit-date"
+                name="visit-date"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-field">
+              <label for="tickets">Tickets</label>
+              <input
+                type="number"
+                id="tickets"
+                name="tickets"
+                min="1"
+                max="20"
+                value="1"
+                required
+                aria-required="true"
+              />
+            </div>
+            <div class="form-field">
+              <label for="package">Package</label>
+              <select id="package" name="package" required aria-required="true">
+                <option value="">Select a package</option>
+                <option value="men">Men</option>
+                <option value="women">Women</option>
+                <option value="student">Student</option>
+                <option value="family">Family</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="cta-btn primary">
+              Confirm Booking
+            </button>
+            <a href="Facilities/packag.html" class="cta-btn secondary"
+              >View Pricing</a
+            >
+          </div>
+          <p id="booking-message" class="sr-only" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- review-section -->
+    <section id="reviews">
+      <!-- <div> -->
+      <h1>What our customer says</h1>
+      <h2>6,672 Reviews</h2>
+      <br />
+
+      <div class="carousel-container">
+        <div class="arrow left-arrow">
+          <div class="arrow" onclick="slideLeft()">←</div>
+        </div>
+
+        <div class="carousel" id="carousel">
+          <!-- Example Cards -->
+          <div class="review-card">
+            <div class="review-header">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRij6dtiHizH96qpCOe8WeXXP3yLyQJkPdGVg&s"
+                alt="Reviewer avatar for Zain"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <strong>Zain Sethar</strong>
+                <span>21 March 2025</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-text">
+              READ THIS FIRST! The place is beautiful, lots of a...
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <img
+                src="https://i.pinimg.com/236x/7d/1a/3f/7d1a3f77eee9f34782c6f88e97a6c888.jpg"
+                alt="Reviewer avatar for Haroon"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <strong>Haroon Irfan</strong>
+                <span>11 March 2025</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-text">
+              Very nice experience! This park is a must if you g...
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
+                alt="Reviewer avatar for Dawood"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <strong>Dawood Anthony</strong>
+                <span>14 August 2025</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-text">
+              The best water park! I am only disappointed that w...
+            </div>
+          </div>
+          <div class="review-card">
+            <div class="review-header">
+              <img
+                src="https://t3.ftcdn.net/jpg/06/99/46/60/360_F_699466075_DaPTBNlNQTOwwjkOiFEoOvzDV0ByXR9E.jpg"
+                alt="Reviewer avatar for Bilal"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <strong>Bilal</strong>
+                <span>31 December 2020</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-text">
+              The best water park! I am only disappointed that w...
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-header">
+              <img
+                src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2Zlc3Npb25hbCUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D"
+                alt="Reviewer avatar for Furqan"
+                loading="lazy"
+              />
+              <div class="review-info">
+                <strong>Furqan</strong>
+                <span>17 August 2022</span>
+              </div>
+            </div>
+            <div class="stars">★★★★★</div>
+            <div class="review-text">
+              The best water park! I am only disappointed that w...
+            </div>
+          </div>
+        </div>
+        <div class="arrow right-arrow">
+          <div class="arrow" onclick="slideRight()">→</div>
+        </div>
+      </div>
+    </section>
+    <br />
+    <br />
+    <footer>
+      <div class="footer-container">
+        <!-- Logo / About -->
+        <div class="footer-logo">
+          <h2>Sanjalika Water Park</h2>
+          <p>
+            Experience the thrill of water rides, wave pools, and endless fun!
+            Your ultimate family water adventure starts here.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Rides & Slides</a></li>
+            <li><a href="food-zone.html">Food Zone</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>📍 123 Water Street, Fun City</p>
+          <p>📞 +123 456 789</p>
+          <p>✉️ info@aquafunpark.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Text -->
+      <div class="footer-bottom">
+        <p>© 2025 Sanjalika Water Park. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+  <script>
+    let carousel = document.getElementById("carousel");
+
+    function slideLeft() {
+      carousel.scrollBy({ left: -320, behavior: "smooth" });
+    }
+
+    function slideRight() {
+      carousel.scrollBy({ left: 320, behavior: "smooth" });
+    }
+    // Booking form handler
+    const bookingForm = document.getElementById("booking-form");
+    const bookingMsg = document.getElementById("booking-message");
+    if (bookingForm) {
+      bookingForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("fullname").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const date = document.getElementById("visit-date").value;
+        const tickets = document.getElementById("tickets").value;
+        const pkg = document.getElementById("package").value;
+        if (!name || !email || !date || !tickets || !pkg) {
+          alert("Please fill all required fields.");
+          return;
+        }
+        const bookingData = { name, email, date, tickets, pkg, ts: Date.now() };
+        try {
+          const existing = JSON.parse(localStorage.getItem("bookings") || "[]");
+          existing.push(bookingData);
+          localStorage.setItem("bookings", JSON.stringify(existing));
+        } catch (err) {}
+        bookingMsg.classList.remove("sr-only");
+        bookingMsg.textContent =
+          "Thank you, " + name + "! Your booking request has been recorded.";
+        bookingForm.reset();
+      });
+    }
+    // Download printable info
+    const downloadBtn = document.getElementById("download-info-btn");
+    if (downloadBtn) {
+      downloadBtn.addEventListener("click", function () {
+        window.print();
+      });
+    }
+  </script>
+  <script
+    src="https://kit.fontawesome.com/64d58efce2.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

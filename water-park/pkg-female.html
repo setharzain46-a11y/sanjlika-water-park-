@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Facilities - Water Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #1a2980, #26d0ce);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+      filter: blur(8px);
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    .header {
+      text-align: center;
+      margin: 20px 0 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 800px;
+    }
+    
+    .header h1 {
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 2.5rem;
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    video {
+      width: 80%;        
+      height: auto;      
+      max-width: 800px;   
+      margin: 20px 0;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cards {
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 90%;
+      max-width: 1200px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      border-radius: 15px;
+      padding: 25px;
+      flex: 1 1 300px;
+      max-width: 400px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .card h2 {
+      color: #ffeb3b;
+      margin-bottom: 15px;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 1.5rem;
+    }
+
+    .card p {
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.6;
+    }
+
+    .btn-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .btn {
+      background: linear-gradient(to right, #ff6b6b, #ff8e53);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 30px;
+      color: white;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+      font-size: 1.1rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn:hover {
+      background: linear-gradient(to right, #ff8e53, #ff6b6b);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+      color: white;
+    }
+
+    .footer {
+      text-align: center;
+      color: white;
+      padding: 20px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 90%;
+      max-width: 800px;
+    }
+
+    .special-text {
+      background: linear-gradient(to right, #ff6b6b, #ff8e53);
+      --webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      video {
+        width: 95%;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Family Fun Facilities</h1>
+    <p>Create unforgettable memories with your loved ones at our water park!</p>
+  </div>
+
+  <video autoplay muted loop>
+    <source src="waterpark.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="cards">
+    <div class="card">
+      <h2>Thrill & Adventure</h2>
+      <p>Experience heart-racing water slides, wave pools, and rides that bring out the adventurer in you. Our water park is the perfect place for unforgettable fun and excitement!</p>
+      <p><span class="special-text">For female visitors:</span> Try our relaxing spa area and dedicated women-only swimming zones for a more comfortable experience.</p>
+    </div>
+    <div class="card">
+      <h2>Relax & Refresh</h2>
+      <p>Take a break in calm lazy rivers and crystal-clear pools. With family-friendly zones and refreshing spots, there's joy for everyone at every corner of the park.</p>
+      <p><span class="special-text">For female visitors:</span> Enjoy our premium lounge chairs, private cabanas, and special wellness treatments designed just for women.</p>
+    </div>
+    <div class="card">
+      <h2>Special Family Deals</h2>
+      <p>Enjoy our exclusive family package with discounted rates for groups. Includes complimentary meals, dedicated family changing rooms, and special activities for kids.</p>
+      <p><span class="special-text">For female visitors:</span> We offer women-only changing facilities, female lifeguards, and special women's discount days every Tuesday.</p>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <a href="booking.html" class="btn">Book Family Package Now</a>
+  </div>
+
+  <div class="footer">
+    <p>© 2023 Aqua Adventure Park. All rights reserved.</p>
+    <p>Contact us: info@aquaadventure.com | Phone: +1 234 567 8900</p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

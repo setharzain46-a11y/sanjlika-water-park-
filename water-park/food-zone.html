@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Zone - Sanjalika Water Park</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-barr">
+      <nav>
+        <input type="checkbox" id="nav-toggle" hidden />
+        <div class="logo-section">
+          <div class="logo">
+            <img src="water_park_logo.png" alt="Sanjalika Water Park logo" />
+          </div>
+          <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="search" />
+            <button>🔍</button>
+          </div>
+          <button id="buy-btn">buy ticket</button>
+        </div>
+        <label for="nav-toggle" class="hamburger">☰</label>
+        <div class="nav-bar">
+          <div class="nav-as" id="nav-a">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="slides.html">Slides</a>
+            <a href="park-info.html"> Park Info</a>
+            <a href="food-zone.html">Food Zone</a>
+            <a href="Facilities/packag.html">Facilities</a>
+            <a href="location-map.html">Location </a>
+            <a href="contact-us.html">Contact Us </a>
+            <a href="about-us.html">About Us </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main style="margin-top: 140px; padding: 0 16px 40px">
+      <section class="section">
+        <div class="container">
+          <h2>Food Zone</h2>
+          <div class="filter-btns" style="margin-top: 10px">
+            <button class="cta-btn primary" data-filter="all">All</button>
+            <button class="cta-btn secondary" data-filter="burgers">
+              Burgers
+            </button>
+            <button class="cta-btn secondary" data-filter="snacks">
+              Snacks
+            </button>
+            <button class="cta-btn secondary" data-filter="drinks">
+              Drinks
+            </button>
+            <button class="cta-btn secondary" data-filter="desserts">
+              Desserts
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="menu"
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 16px;
+        "
+      >
+        <div class="card" data-category="burgers">
+          <img
+            src="https://www.sargento.com/assets/Uploads/Recipe/Image/GreatAmericanBurger.jpg"
+            alt="Cheese Burger"
+            loading="lazy"
+          />
+          <h3>Cheese Burger</h3>
+          <p>Juicy burger with cheese.</p>
+        </div>
+        <div class="card" data-category="snacks">
+          <img
+            src="https://thecookingfoodie.com/wp-content/uploads/2020/05/IMG_4474-scaled.jpg"
+            alt="French Fries"
+            loading="lazy"
+          />
+          <h3>French Fries</h3>
+          <p>Crispy golden fries.</p>
+        </div>
+        <div class="card" data-category="drinks">
+          <img
+            src="https://www.shutterstock.com/image-photo/cola-soft-drink-ice-cubes-260nw-2600590623.jpg"
+            alt="Cold Drink"
+            loading="lazy"
+          />
+          <h3>Cold Drink</h3>
+          <p>Refreshing soft drink.</p>
+        </div>
+        <div class="card" data-category="desserts">
+          <img
+            src="https://pinchmysalt.com/wp-content/uploads/2006/09/Cinnamon-Vanilla-Bean-Ice-Cream.jpg"
+            alt="Ice Cream"
+            loading="lazy"
+          />
+          <h3>Ice Cream</h3>
+          <p>Delicious vanilla scoop.</p>
+        </div>
+        <div class="card" data-category="burgers">
+          <img
+            src="https://www.andy-cooks.com/cdn/shop/articles/20240831035715-andy-20cooks-20-20grilled-20chicken-20burger-20recipe_e0e5e1a7-cb37-48ba-bc46-a97780f32eaa.jpg?v=1725428110"
+            alt="Chicken Burger"
+            loading="lazy"
+          />
+          <h3>Chicken Burger</h3>
+          <p>Grilled chicken patty.</p>
+        </div>
+        <div class="card" data-category="drinks">
+          <img
+            src="https://refreshjuice.com.au/cdn/shop/articles/Featured_Image_1_1.png?v=1730101394"
+            alt="Fresh Juice"
+            loading="lazy"
+          />
+          <h3>Fresh Juice</h3>
+          <p>Healthy fruit juice.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Sanjalika Water Park</h2>
+          <p>
+            Experience the thrill of water rides, wave pools, and endless fun!
+            Your ultimate family water adventure starts here.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Rides & Slides</a></li>
+            <li><a href="food-zone.html">Food Zone</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>📍 123 Water Street, Fun City</p>
+          <p>📞 +123 456 789</p>
+          <p>✉️ info@aquafunpark.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Sanjalika Water Park. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const filterBtns = document.querySelectorAll(".filter-btns button");
+      const cards = document.querySelectorAll(".menu .card");
+      filterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document
+            .querySelector(".filter-btns .primary")
+            .classList.remove("primary");
+          document
+            .querySelector(".filter-btns .secondary")
+            ?.classList.remove("secondary");
+          btn.classList.add("primary");
+          const category = btn.getAttribute("data-filter");
+          cards.forEach((card) => {
+            const ok =
+              category === "all" ||
+              card.getAttribute("data-category") === category;
+            card.style.display = ok ? "block" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

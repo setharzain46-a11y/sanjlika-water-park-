@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Sanjalika Water Park</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav-barr">
+      <nav>
+        <input type="checkbox" id="nav-toggle" hidden />
+        <div class="logo-section">
+          <div class="logo">
+            <img src="water_park_logo.png" alt="Sanjalika Water Park logo" />
+          </div>
+          <div class="search-box">
+            <input type="text" name="search" id="search" placeholder="search" />
+            <button>🔍</button>
+          </div>
+          <button id="buy-btn">buy ticket</button>
+        </div>
+        <label for="nav-toggle" class="hamburger">☰</label>
+        <div class="nav-bar">
+          <div class="nav-as" id="nav-a">
+            <a href="index.html">Home</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="slides.html">Slides</a>
+            <a href="park-info.html"> Park Info</a>
+            <a href="food-zone.html">Food Zone</a>
+            <a href="Facilities/packag.html">Facilities</a>
+            <a href="location-map.html">Location </a>
+            <a href="contact-us.html" class="active">Contact Us </a>
+            <a href="about-us.html">About Us </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <main style="margin-top: 140px; padding: 0 16px 40px">
+      <section class="section">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <p>Have questions? Reach out and we’ll get back to you soon.</p>
+        </div>
+      </section>
+      <section class="section section-alt">
+        <div class="container">
+          <form class="form-grid" id="contact-form">
+            <div class="form-field">
+              <label for="cname">Full Name</label>
+              <input id="cname" required placeholder="Your name" />
+            </div>
+            <div class="form-field">
+              <label for="cemail">Email</label>
+              <input
+                id="cemail"
+                type="email"
+                required
+                placeholder="you@example.com"
+              />
+            </div>
+            <div class="form-field" style="grid-column: 1/-1">
+              <label for="cmsg">Message</label>
+              <input id="cmsg" required placeholder="How can we help?" />
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="cta-btn primary">Send</button>
+              <a href="tel:+123456789" class="cta-btn secondary">Call Us</a>
+            </div>
+            <p id="contact-msg" class="sr-only" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-logo">
+          <h2>Sanjalika Water Park</h2>
+          <p>
+            Experience the thrill of water rides, wave pools, and endless fun!
+            Your ultimate family water adventure starts here.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="slides.html">Rides & Slides</a></li>
+            <li><a href="food-zone.html">Food Zone</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>📍 123 Water Street, Fun City</p>
+          <p>📞 +123 456 789</p>
+          <p>✉️ info@aquafunpark.com</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Sanjalika Water Park. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const cf = document.getElementById("contact-form");
+      const cm = document.getElementById("contact-msg");
+      if (cf) {
+        cf.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const n = document.getElementById("cname").value.trim();
+          const em = document.getElementById("cemail").value.trim();
+          const m = document.getElementById("cmsg").value.trim();
+          if (!n || !em || !m) {
+            alert("Please complete all fields.");
+            return;
+          }
+          try {
+            const msgs = JSON.parse(localStorage.getItem("messages") || "[]");
+            msgs.push({ n, em, m, ts: Date.now() });
+            localStorage.setItem("messages", JSON.stringify(msgs));
+          } catch (err) {}
+          cm.classList.remove("sr-only");
+          cm.textContent = "Thanks, " + n + "! Your message has been sent.";
+          cf.reset();
+        });
+      }
+    </script>
+  </body>
+</html>
